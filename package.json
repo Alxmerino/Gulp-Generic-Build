@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Alxmerino/Gulp-Generic-Build",
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-util": "^3.0.7"
+    "gulp-util": "^3.0.7",
+    "run-sequence": "^1.2.2"
   },
   "devDependencies": {}
 }
