@@ -36,8 +36,11 @@ function LoadTasks(gulp, config) {
     // Define run sequense here so it registers with the given gulp instance
     let runSequence  = require('run-sequence').use(gulp);
 
-    // Get JSON from config file
-    config = getConfigJSON(config);
+    /**
+     * Get JSON from config file and assign it to
+     * gulp object so we can access it on tasks
+     */
+    gulp.config = getConfigJSON(config);
 
     // Loop through task files and assign as gulp tasks
     taskList.forEach(function(taskFile) {
