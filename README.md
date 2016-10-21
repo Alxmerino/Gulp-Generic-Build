@@ -8,6 +8,9 @@ These are Gulp tasks that can be used to build assests for various projects. The
 - javascript-dev
 - javascript-prod
 
+## Install
+`npm install git+ssh@github.com:Alxmerino/Gulp-Generic-Build.git`
+
 ## Basic usage
 You will need a `gulpfile.js` and a `config.json` file to use these tasks. You specify the path of the config file in `gulpfile.js`. See below and also examples/
 
