@@ -1,0 +1,16 @@
+{
+	"global": "{} This could potentialy be useful",
+	"source": {
+		"scss": "./assets/scss",
+		"js": "./assets/js",
+		"vendor": "./assets/vendor",
+		"img": "./assets/img",
+		"bower": "./bower_components",
+		"node": "./node_modules"
+	},
+	"dest": {
+		"css": "./assets/dist/css",
+		"js": "./assets/dist/js",
+		"img": "./assets/dist/img"
+	}
+}
