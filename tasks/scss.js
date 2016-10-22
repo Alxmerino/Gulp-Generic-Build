@@ -7,6 +7,10 @@
 const gutil = require('gulp-util');
 const sass  = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const sassOptions = {
+    errLogToConsole: true,
+    outputStyle: 'expanded'
+};
 
 function ScssTask() {
     const gulp = this;
@@ -15,9 +19,7 @@ function ScssTask() {
 
     return gulp.src(src.scss + '/**/*.scss')
         .pipe(
-            sass({
-                outputStyle: 'compressed'
-            })
+            sass(sassOptions)
             .on('error', sass.logError)
         )
         .pipe(
