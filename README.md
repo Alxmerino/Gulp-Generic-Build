@@ -17,6 +17,7 @@ You will need a `gulpfile.js` and a `config.json` file to use these tasks. You s
 config.json shoudl look like this.
 ```:json
 {
+    "tasks": ["scss"],
 	"source": {
 		"scss": "./path/to/scss",
 		"js": "./path/to/js",
@@ -45,4 +46,3 @@ let gulpTasks   = require('gulp-generic-build')(gulp, configFile);
 
 ## Todo
 - Add in cleanup, javascript-* tasks
-- Add css source maps

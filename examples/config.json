@@ -1,5 +1,6 @@
 {
 	"global": "{} This could potentialy be useful",
+  "tasks": ["scss"],
 	"source": {
 		"scss": "./assets/scss",
 		"js": "./assets/js",

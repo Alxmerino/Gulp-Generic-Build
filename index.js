@@ -56,7 +56,8 @@ function LoadTasks(gulp, config) {
 
     // Lets kickoff gulp
     gulp.task('default', () => {
-        runSequence(/*'cleanup', */'scss');
+        let gulpTasks = typeof(gulp.config.tasks) !== 'undefined' ? gulp.config.tasks : ['cleanup', 'scss'];
+        runSequence.apply(undefined, gulpTasks);
     });
 }
 
