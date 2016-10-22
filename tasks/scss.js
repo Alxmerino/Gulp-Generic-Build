@@ -4,14 +4,14 @@
  */
 'use strict';
 
-let gutil = require('gulp-util');
-let sass  = require('gulp-sass');
-let autoprefixer = require('gulp-autoprefixer');
+const gutil = require('gulp-util');
+const sass  = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
 
 function ScssTask() {
-    let gulp = this;
-    let src = gulp.config.source;
-    let dest = gulp.config.dest;
+    const gulp = this;
+    const src = gulp.config.source;
+    const dest = gulp.config.dest;
 
     return gulp.src(src.scss + '/**/*.scss')
         .pipe(

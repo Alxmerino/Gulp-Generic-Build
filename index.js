@@ -6,17 +6,17 @@
 
 'use strict';
 
-let fs           = require('fs');
-let gutil        = require('gulp-util');
-let taskPath     = __dirname + '/tasks/';
-let taskList     = fs.readdirSync(taskPath);
+const fs           = require('fs');
+const gutil        = require('gulp-util');
+const taskPath     = __dirname + '/tasks/';
+const taskList     = fs.readdirSync(taskPath);
 
 /**
  * Reads the path to a config file and returns it as JSON
  * @param  {String} configFile
  * @return {Object}
  */
-function getConfigJSON(configFile) {
+let getConfigJSON = (configFile) => {
     return JSON.parse(fs.readFileSync(configFile));
 }
 
@@ -43,7 +43,7 @@ function LoadTasks(gulp, config) {
     gulp.config = getConfigJSON(config);
 
     // Loop through task files and assign as gulp tasks
-    taskList.forEach(function(taskFile) {
+    taskList.forEach((taskFile) => {
         // Strips `.js` from the task file
         let taskName = taskFile.substr(0, taskFile.length-3);
 
@@ -55,8 +55,8 @@ function LoadTasks(gulp, config) {
     });
 
     // Lets kickoff gulp
-    gulp.task('default', function() {
-        runSequence('cleanup', 'scss');
+    gulp.task('default', () => {
+        runSequence(/*'cleanup', */'scss');
     });
 }
 
