@@ -4,13 +4,18 @@
  */
 'use strict';
 
-const gutil = require('gulp-util');
-const sass  = require('gulp-sass');
+const gutil        = require('gulp-util');
+const sass         = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const sassOptions = {
+const sourcemaps   = require('gulp-sourcemaps');
+const sassOptions  = {
     errLogToConsole: true,
-    outputStyle: 'expanded'
+    outputStyle: 'compressed'
 };
+const autoprefixerOptions = {
+    browsers: ['last 2 versions', '> 5%'],
+    cascade: false
+}
 
 function ScssTask() {
     const gulp = this;
@@ -18,16 +23,13 @@ function ScssTask() {
     const dest = gulp.config.dest;
 
     return gulp.src(src.scss + '/**/*.scss')
+        .pipe(sourcemaps.init())
         .pipe(
             sass(sassOptions)
             .on('error', sass.logError)
         )
-        .pipe(
-            autoprefixer({
-                browsers: ['last 2 versions'],
-                cascade: false
-            })
-        )
+        .pipe(autoprefixer(autoprefixerOptions))
+        .pipe(sourcemaps.write('.'))
         .pipe(
             gulp.dest(dest.css)
         );
