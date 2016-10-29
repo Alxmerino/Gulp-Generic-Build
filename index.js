@@ -11,15 +11,6 @@ const gutil        = require('gulp-util');
 const taskPath     = __dirname + '/tasks/';
 const taskList     = fs.readdirSync(taskPath);
 
-/**
- * Reads the path to a config file and returns it as JSON
- * @param  {String} configFile
- * @return {Object}
- */
-let getConfigJSON = (configFile) => {
-    return JSON.parse(fs.readFileSync(configFile));
-}
-
 
 /**
  * Get the config data and load all available tasks
@@ -40,7 +31,7 @@ function LoadTasks(gulp, config) {
      * Get JSON from config file and assign it to
      * gulp object so we can access it on tasks
      */
-    gulp.config = getConfigJSON(config);
+    gulp.config = require(config);
 
     // Loop through task files and assign as gulp tasks
     taskList.forEach((taskFile) => {
