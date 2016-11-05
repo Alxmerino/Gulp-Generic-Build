@@ -14,13 +14,7 @@ const notify         = require("gulp-notify");
 let isProd = false;
 let isDev = true;
 
-// If "production" or "prod" is passed from the command line then update the defaults
-if(gutil.env.prod === 'prod' || gutil.env.prod === 'production') {
-    isDev = false;
-    isProd = true;
-}
-
-const sassOptions  = {
+const sassOptions = {
     errLogToConsole: true,
     outputStyle: 'compressed'
 };
@@ -35,18 +29,24 @@ function ScssTask() {
     const src = gulp.config.source;
     const dest = gulp.config.dest;
 
+    // If "production" or "prod" is passed from the command line then update the defaults
+    if(gutil.env.prod || gutil.env.production) {
+        isDev = false;
+        isProd = true;
+    }
+
     return gulp.src(src.scss + '/**/*.scss')
-        .pipe(sourcemaps.init())
+        .pipe(gulpif(isDev, sourcemaps.init()))
         .pipe(
             sass(sassOptions)
             .on('error', sass.logError)
         )
-        .pipe(autoprefixer(autoprefixerOptions))
-        .pipe(sourcemaps.write('.'))
+        .pipe(gulpif(isProd, autoprefixer(autoprefixerOptions)))
+        .pipe(gulpif(isDev, sourcemaps.write('.')))
         .pipe(
             gulp.dest(dest.css)
         )
-        .pipe(notify("SCSS - Build Complete"));
+        .pipe(gulpif(isProd, notify("SCSS - Build Complete")));
 }
 
 module.exports = ScssTask;
