@@ -1,3 +1,7 @@
+/**
+ * Optimize newly added images
+ */
+
 'use strict';
 
 let newer    = require('gulp-newer');
