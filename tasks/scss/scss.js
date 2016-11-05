@@ -46,7 +46,7 @@ function ScssTask() {
         .pipe(
             gulp.dest(dest.css)
         )
-        .pipe(gulpif(isProd, notify("SCSS - Build Complete")));
+        .pipe(gulpif(isDev, notify("SCSS - Build Complete")));
 }
 
 module.exports = ScssTask;
