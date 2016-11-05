@@ -8,6 +8,8 @@ const gutil        = require('gulp-util');
 const sass         = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps   = require('gulp-sourcemaps');
+var notify         = require("gulp-notify");
+
 const sassOptions  = {
     errLogToConsole: true,
     outputStyle: 'compressed'
@@ -32,7 +34,8 @@ function ScssTask() {
         .pipe(sourcemaps.write('.'))
         .pipe(
             gulp.dest(dest.css)
-        );
+        )
+        .pipe(notify("SCSS - Build Complete"));
 }
 
 module.exports = ScssTask;
