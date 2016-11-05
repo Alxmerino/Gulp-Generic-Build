@@ -2,6 +2,7 @@
  * Compiles SCSS into CSS
  * @author Rene Merino <rmerino@amayamedia.com>
  */
+
 'use strict';
 
 const gutil        = require('gulp-util');
