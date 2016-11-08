@@ -2,6 +2,7 @@
  * Cleans up CSS and JavaScript
  * @author Rene Merino <rmerino@amayamedia.com>
  */
+
 'use strict';
 
 let gutil = require('gulp-util');
