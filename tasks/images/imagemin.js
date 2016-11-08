@@ -6,6 +6,7 @@
 
 let newer    = require('gulp-newer');
 let imagemin = require('gulp-imagemin');
+let pngquant = require('imagemin-pngquant');
 
 function imageOptimizeTask() {
     let gulp = this;
@@ -14,7 +15,11 @@ function imageOptimizeTask() {
 
     return gulp.src(src.img + '/**')
         .pipe(newer(dest.img))
-        .pipe(imagemin())
+        .pipe(imagemin({
+            progressive: true,
+            sgvoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
         .pipe(gulp.dest(dest.img));
 }
 
