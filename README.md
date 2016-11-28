@@ -2,9 +2,13 @@
 
 These are Gulp tasks that can be used to build assests for various projects. They take a generic approach and can be managed through a config file.
 
+# Goal
+The main goal for this package is to have a collection of pre-defined tasks that can be used in many different projects. This will avoid writing the same tasks over and over or having to copy gulpfiles from project to project.
+
 ## List of tasks
-- cleanup
+- cleanup [nothing here yet]
 - scss
+- sassdoc [nothing here yet]
 - javascript-dev
 - javascript-prod
 
